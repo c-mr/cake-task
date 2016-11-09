@@ -6,6 +6,9 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
+// 論理削除用プラグイン
+use SoftDelete\Model\Table\SoftDeleteTrait;
+
 /**
  * Staff Model
  *
@@ -19,6 +22,8 @@ use Cake\Validation\Validator;
  */
 class StaffTable extends Table
 {
+    use SoftDeleteTrait;
+    protected $softDeleteField = 'deleted_at';
 
     /**
      * Initialize method

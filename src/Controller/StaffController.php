@@ -108,7 +108,7 @@ class StaffController extends AppController
     }
 
     /**
-     * 削除(物理)
+     * 削除(論理)
      * @param  int $id
      * @return Indexへ遷移
      */

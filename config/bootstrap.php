@@ -224,3 +224,6 @@ if (Configure::read('debug')) {
 }
 
 Plugin::load('Migrations');
+
+// 論理削除のプラグイン
+Plugin::load('SoftDelete');
