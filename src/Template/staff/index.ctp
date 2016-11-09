@@ -1,6 +1,5 @@
 <div class="columns">
     <h3>Staff List</h3>
-    <div><a class="button blue" href="staff/add/">New Entry</a></div>
     <table class="sortable" cellspacing="0" cellpadding="0">
     <thead>
         <tr>
@@ -23,4 +22,5 @@
     <?php endforeach; ?>
     </tbody>
     </table>
+    <div><a class="button blue" href="staff/add/">New Entry</a></div>
 </div>
