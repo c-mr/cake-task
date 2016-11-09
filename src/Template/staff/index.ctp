@@ -1,6 +1,8 @@
-<div class="columns">
-    <h3>Staff List</h3>
-    <table class="sortable" cellspacing="0" cellpadding="0">
+<div class="container theme-showcase">
+    <div class="page-header">
+        <h3>Staff List</h3>
+    </div>
+    <table class="table table-striped" cellspacing="0" cellpadding="0">
     <thead>
         <tr>
             <th>Staff No.</th>
@@ -22,5 +24,5 @@
     <?php endforeach; ?>
     </tbody>
     </table>
-    <div><a class="button blue" href="staff/add/">New Entry</a></div>
+    <div><a class="btn btn-primary" href="staff/add/">New Entry</a></div>
 </div>

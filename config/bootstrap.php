@@ -227,3 +227,6 @@ Plugin::load('Migrations');
 
 // 論理削除のプラグイン
 Plugin::load('SoftDelete');
+
+// twitter bootstrap
+Plugin::load('BootstrapUI');
