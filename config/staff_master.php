@@ -10,7 +10,7 @@ return [
         5 => 'Department5',
     ],
     // 性別
-    'sex' => [
+    'gender' => [
         1 => 'Male',
         2 => 'Female',
     ],

@@ -67,9 +67,9 @@ class StaffTable extends Table
             ->notEmpty('department');
 
         $validator
-            ->integer('sex')
-            ->requirePresence('sex', 'create')
-            ->notEmpty('sex');
+            ->integer('gender')
+            ->requirePresence('gender', 'create')
+            ->notEmpty('gender');
 
         // Insert時に自動で保存される
         $validator

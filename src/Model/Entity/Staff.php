@@ -10,7 +10,7 @@ use Cake\ORM\Entity;
  * @property int $staff_no
  * @property string $name
  * @property int $department
- * @property int $sex
+ * @property int $gender
  * @property \Cake\I18n\Time $created_at
  * @property \Cake\I18n\Time $updated_at
  * @property \Cake\I18n\Time $deleted_at

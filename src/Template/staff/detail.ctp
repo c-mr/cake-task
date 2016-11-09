@@ -9,8 +9,8 @@
             <tr><td><?= h($staff->name) ?></td></tr>
             <tr><th>Department</th></tr>
             <tr><td><?= h($department[$staff->department]) ?></td></tr>
-            <tr><th>Sex</th></tr>
-            <tr><td><?= h($sex[$staff->sex]) ?></td></tr>
+            <tr><th>Gender</th></tr>
+            <tr><td><?= h($gender[$staff->gender]) ?></td></tr>
         </tbody>
         </table>
         <!-- 編集画面へ -->

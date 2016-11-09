@@ -26,7 +26,7 @@
                         <td><?= $this->Form->input('department', ['type' => 'select', 'options' => ['' => 'Select']+$department ]); ?></td>
                     </tr>
                     <tr>
-                        <td><?= $this->Form->input('sex',['type' => 'radio', 'options' => $sex ]); ?></td>
+                        <td><?= $this->Form->input('gender',['type' => 'radio', 'options' => $gender ]); ?></td>
                     </tr>
                     <tr>
                         <td><?= $this->Form->submit('Save') ?></td>

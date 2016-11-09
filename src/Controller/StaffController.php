@@ -17,7 +17,7 @@ class StaffController extends AppController
     {
         // マスタ定義をViewに送る
         $this->set('department', Configure::read('department'));
-        $this->set('sex', Configure::read('sex'));
+        $this->set('gender', Configure::read('gender'));
 
         // IDでソートしてViewに送る
         $this->set('staffs', $this->Staff->find('all')->order(['id' => 'DESC']));
@@ -31,7 +31,7 @@ class StaffController extends AppController
     {
         // マスタ定義をViewに送る
         $this->set('department', Configure::read('department'));
-        $this->set('sex', Configure::read('sex'));
+        $this->set('gender', Configure::read('gender'));
 
         // Postで呼出されたらインサート処理
         if ($this->request->is('post')) {
@@ -60,7 +60,7 @@ class StaffController extends AppController
     {
         // マスタ定義をViewに送る
         $this->set('department', Configure::read('department'));
-        $this->set('sex', Configure::read('sex'));
+        $this->set('gender', Configure::read('gender'));
 
         // DBから値を取得
         $staff = $this->Staff->get($id);
@@ -78,7 +78,7 @@ class StaffController extends AppController
     {
         // マスタ定義をViewに送る
         $this->set('department', Configure::read('department'));
-        $this->set('sex', Configure::read('sex'));
+        $this->set('gender', Configure::read('gender'));
 
         // DBから値を取得
         $staff = $this->Staff->get($id);
