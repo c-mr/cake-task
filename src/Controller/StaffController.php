@@ -9,6 +9,7 @@ use Cake\Core\Configure;
 
 class StaffController extends AppController
 {
+
     /**
      * 一覧画面
      */
@@ -36,10 +37,16 @@ class StaffController extends AppController
         if ($this->request->is('post')) {
             $staff = $this->Staff->newEntity();
             $staff = $this->Staff->patchEntity($staff, $this->request->data);
+            // debug($staff->errors());
 
-            // セーブしたらIndexへ遷移
-            if ($this->Staff->save($staff)) {
-                return $this->redirect(['action' => 'index']);
+            if(!$staff->errors()) {
+                if ($this->Staff->save($staff)) {
+                // セーブしたらIndexへ遷移
+                    return $this->redirect(['action' => 'index']);
+                }
+            } else {
+                // 入力ミスがあればエラーメッセージ
+                $this->set('errors', $staff->errors());
             }
         }
     }

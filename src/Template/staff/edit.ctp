@@ -5,6 +5,17 @@
         <?= $this->Form->create($staff) ?>
             <table class="">
                 <tbody>
+                    <?php
+                    if (isset($errors)) {
+                        echo "<tr><td>";
+                        foreach ($errors as $keys => $error) {
+                            foreach ($error as $key => $value) {
+                                echo $keys." ： ".$value."<br />";
+                            }
+                        }
+                        echo "</td></tr>";
+                    }
+                    ?>
                     <tr>
                         <td><?= $this->Form->input('staff_no', ['type' => 'text' ]); ?></td>
                     </tr>

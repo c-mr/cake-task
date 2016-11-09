@@ -50,11 +50,16 @@ class StaffTable extends Table
         $validator
             ->integer('staff_no')
             ->requirePresence('staff_no', 'create')
-            ->notEmpty('staff_no');
+            ->notEmpty('staff_no')
+            ->add('staff_no', 'exist', [ 'rule' => [$this, 'exist'], 'message' => 'It is registered' ])
+            ->add('staff_no', [ 'between' => ['rule' => ['lengthBetween', 7, 7], 'message' => 'Enter in 7 digits'] ]);
 
         $validator
             ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->notEmpty('name')
+            ->add('name', [
+                'maxLength' => ['rule' => ['maxLength', 200], 'message' => 'Up to 200 characters'],
+            ]);
 
         $validator
             ->integer('department')
@@ -67,21 +72,33 @@ class StaffTable extends Table
             ->notEmpty('sex');
 
         // Insert時に自動で保存される
-        // $validator
-        //     ->dateTime('created_at')
-        //     ->requirePresence('created_at', 'create')
-        //     ->notEmpty('created_at');
+        $validator
+            ->dateTime('created_at')
+            ->allowEmpty('created_at');
 
         // Insert時に自動で保存、Update時に自動で更新される
-        // $validator
-        //     ->dateTime('updated_at')
-        //     ->requirePresence('updated_at', 'create')
-        //     ->notEmpty('updated_at');
+        $validator
+            ->dateTime('updated_at')
+            ->allowEmpty('updated_at');
 
         $validator
             ->dateTime('deleted_at')
             ->allowEmpty('deleted_at');
 
         return $validator;
+    }
+
+    public function exist($value, $context) {
+        $table = $context['providers']['table'];
+        $query = $table->find();
+        $query->where([$context['field'] => $value]);
+
+        //自身のIDを除外
+        if(!empty($context['data'][$table->_primaryKey])) {
+          $query->where([$table->_primaryKey.' !=' => $context['data'][$table->_primaryKey]]);
+        }
+
+        $count = $query->count();
+        return (bool) $count == 0;
     }
 }

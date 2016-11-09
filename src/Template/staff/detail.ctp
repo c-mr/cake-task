@@ -1,7 +1,6 @@
 <div class="columns">
     <div>
         <h3>Staff List</h3>
-        <div><a class="button blue" href="../edit/<?=$staff->id?>">Edit</a></div>
         <table>
         <tbody>
             <tr><th>Staff No.</th></tr>
@@ -14,8 +13,13 @@
             <tr><td><?= h($sex[$staff->sex]) ?></td></tr>
         </tbody>
         </table>
-    <?= $this->Form->create($staff,[ 'type' => 'post', 'url' => ['controller' => 'Staff', 'action' => 'delete'] ] ) ?>
-    <?= $this->Form->button('Delete') ?>
-    <?= $this->Form->end() ?>
+        <!-- 編集画面へ -->
+        <div><a class="button blue" href="../edit/<?=$staff->id?>">Edit</a></div>
+        <!-- 登録削除 -->
+        <div>
+        <?= $this->Form->create($staff,[ 'type' => 'post', 'url' => ['controller' => 'Staff', 'action' => 'delete'] ] ) ?>
+        <?= $this->Form->button('Delete') ?>
+        <?= $this->Form->end() ?>
+        </div>
     </div>
 </div>
