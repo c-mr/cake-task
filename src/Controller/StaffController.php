@@ -41,7 +41,7 @@ class StaffController extends AppController
 
             if(!$staff->errors()) {
                 if ($this->Staff->save($staff)) {
-                // セーブしたらIndexへ遷移
+                    // セーブしたらIndexへ遷移
                     return $this->redirect(['action' => 'index']);
                 }
             } else {
@@ -83,16 +83,28 @@ class StaffController extends AppController
         // DBから値を取得
         $staff = $this->Staff->get($id);
 
+        // 社員番号は7桁で0埋めもしておく
+        $staff['staff_no'] = h(sprintf('%07d', $staff->staff_no));
+        // 編集画面ヘ(Viewへ値を送る)
+        $this->set('staff', $staff);
+
+        // Postで呼出されたらアップデート処理
         if ($this->request->is(['post', 'put'])) {
-            // Postから呼び出された時はUpdateしてIndexへ遷移
             $staff = $this->Staff->patchEntity($staff, $this->request->data);
-            if ($this->Staff->save($staff)) {
-                return $this->redirect(['action' => 'index']);
+            // debug($staff->errors());
+
+            if(!$staff->errors()) {
+                if ($this->Staff->save($staff)) {
+                    // セーブしたらIndexへ遷移
+                    return $this->redirect(['action' => 'detail/'.$id]);
+                }
+            } else {
+                // 入力ミスがあればエラーメッセージ
+                $this->set('errors', $staff->errors());
             }
-        } else {
-            // そうでなければ編集画面ヘ(Viewへ値を送る)
-            $this->set('staff', $staff);
         }
+
+
     }
 
     /**

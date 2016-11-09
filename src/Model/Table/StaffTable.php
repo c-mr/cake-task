@@ -95,7 +95,7 @@ class StaffTable extends Table
 
         //自身のIDを除外
         if(!empty($context['data'][$table->_primaryKey])) {
-          $query->where([$table->_primaryKey.' !=' => $context['data'][$table->_primaryKey]]);
+            $query->where([$table->_primaryKey.' !=' => $context['data'][$table->_primaryKey]]);
         }
 
         $count = $query->count();

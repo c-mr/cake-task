@@ -1,6 +1,6 @@
 <div class="columns">
     <div class="row">
-        <h3>Staff Register</h3>
+        <h3>Staff Create</h3>
         <?= $this->Form->create(null, [ 'type' => 'post', 'url' => ['controller' => 'Staff', 'action' => 'add'] ] ) ?>
             <table class="">
                 <tbody>

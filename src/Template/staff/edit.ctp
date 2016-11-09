@@ -1,8 +1,8 @@
-
 <div class="columns">
     <div class="row">
         <h3>Staff Edit</h3>
-        <?= $this->Form->create($staff) ?>
+        <?= $this->Form->create($staff, [ 'type' => 'post', 'url' => ['controller' => 'Staff', 'action' => 'edit'] ] ) ?>
+        <?= $this->Form->hidden('id');// staff_noの重複チェックで必要 ?>
             <table class="">
                 <tbody>
                     <?php
