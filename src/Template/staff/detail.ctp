@@ -1,6 +1,6 @@
 <div class="columns">
     <div>
-        <h3>Staff List</h3>
+        <h3>Staff Detail</h3>
         <table>
         <tbody>
             <tr><th>Staff No.</th></tr>
